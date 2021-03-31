@@ -1,0 +1,164 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="31970C7E-F131-7B0D-3D30-DA2E5F75A231" name="Tratament">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>CD453E83-621A-5998-2A2E-06EE63DCDAFE</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cod_trat" id="2CE4D67C-448C-31DE-E0AC-98D2AAC14F3C">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>4112DAE5-65EA-5188-61DE-94B49852F92B</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementStartWith>6000000000</autoIncrementStartWith>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nume_trat" id="A92FBC52-29F1-1D44-CFA4-6E0F3B2B51A7">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>33BEAF6E-4D4C-D9BD-8DB8-2ADA35D2816C</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>n_trat_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="length(nume_trat) &gt; 1"/>
+</checkConstraint>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="marca_trat" id="56DE108B-8266-C26A-17DE-1002982A9A9E">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>992ABE4E-E7D5-8F61-3B26-C826C7285BA3</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>marca_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="length(marca_trat) &gt; 1"/>
+</checkConstraint>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descriere_trat" id="671CF0D2-7CEB-2093-C911-28F1128647A5">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>789F3B95-A7D3-1CCB-B3E6-11E1C2CA7C08</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>descr_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="length(descriere_trat) &gt; 1"/>
+</checkConstraint>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="per_admin" id="9F34408D-849D-B448-4CDB-3219963536BA">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>A5113086-7E87-8FB0-F0A4-03B0A1C61A73</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>per_adm_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>30</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="ora_admin" id="88FEF21E-3882-ED72-F480-00471D29E73A">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>318E44EA-D639-25C6-9084-55CBF089A8E8</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dozaj_zilnic" id="1928EA30-091C-B434-B93D-3D0BF3072649">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>2AC44F65-D1C7-9E74-ED71-1537B6B2BA90</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>dozaj_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>10</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="id_intern" id="AA4FB1F1-D4FA-E499-3A64-946964C38DD4">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>86BE04C9-47E3-E1B2-7F14-5DA877517A56</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="10E5BF08-791F-44D7-5C80-D89731891FFB" referredColumn="CCFD7509-7604-93E6-9E77-A6352BD1B431"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B359E1AF-D168-8E0A-E30C-20F93178B1C4" name="Tratament_PK">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>47127704-CEAD-6DB7-EA39-0BA18C28DEA0</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2CE4D67C-448C-31DE-E0AC-98D2AAC14F3C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DB373561-6E31-5278-3A5E-3F264DBD3B22" name="Tratament_Internare_FK">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>EC81AC25-794E-3A8E-A8BA-5588E3738C29</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AA4FB1F1-D4FA-E499-3A64-946964C38DD4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

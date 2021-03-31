@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="trg_final_BRIU" directorySegmentName="seg_0" id="2D89539F-668B-53DC-1972-8A2AC9DF53D1">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-30 10:05:04 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<actions>INSERT, UPDATE</actions>
+<body><![CDATA[BEGIN
+	IF( :new.data_final <= :new.data_interv)
+	THEN
+		RAISE_APPLICATION_ERROR( -20001,
+			'Data invalida: ' || TO_CHAR( :new.data_final, 'DD.MM.YYYY HH24:MI:SS' ) || ' trebuie sa fie mai mare decat data de inceput.' );
+	END IF;
+END;]]></body>
+<triggerTime>BEFORE</triggerTime>
+<table>4E536C2B-7BAD-CC93-7EA1-26BC351D2203</table>
+</TriggerOraclev10g>

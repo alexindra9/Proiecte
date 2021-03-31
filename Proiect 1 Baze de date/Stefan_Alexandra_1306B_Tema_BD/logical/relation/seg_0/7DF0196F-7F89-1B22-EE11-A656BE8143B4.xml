@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="interv_intern_fk" directorySegmentName="seg_0" id="7DF0196F-7F89-1B22-EE11-A656BE8143B4">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 12:00:36 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<sourcePk>D8281B97-67CF-A9CA-F43E-621F40A62A9A</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>prevede</nameOnSource>
+<nameOnTarget>e prevazuta pentru</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>B84BC790-92DB-137D-34B1-A1F72400B757</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>F4A86241-95CC-7A69-60CD-F69F4880499E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

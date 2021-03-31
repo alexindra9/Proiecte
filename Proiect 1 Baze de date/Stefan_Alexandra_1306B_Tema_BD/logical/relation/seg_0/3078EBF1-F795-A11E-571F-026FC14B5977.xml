@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="spec_cons_fk" directorySegmentName="seg_0" id="3078EBF1-F795-A11E-571F-026FC14B5977">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:58:11 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<sourcePk>9ED432A9-4927-E0FF-7949-D6FAFE45E7A0</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>realizeaza</nameOnSource>
+<nameOnTarget>e realizata de</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>AD5EC55D-CC55-9E64-D6AB-0D7E41C5CB73</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>3479C669-2CD5-189F-8E34-F46EF38E5A44</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="asis_intern_fk" directorySegmentName="seg_0" id="D8976EFE-5133-CF75-C7A2-95A0E817760C">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 12:02:02 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<sourcePk>BFBA9CEA-F156-2D6D-4E59-08258CF8722B</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>supravegheaza</nameOnSource>
+<nameOnTarget>e supravegheata de</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>E7CD3F4C-7431-349A-4A17-468E1FD67522</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>F4A86241-95CC-7A69-60CD-F69F4880499E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D92D6EA5-AF84-DC33-ADC0-12B1FCF8F6FD" containerWithKeyObject="BE6C7683-9CE6-D66F-D0CD-42EF6B0133B6" localFKIndex="E69320C2-637D-3782-EBFD-BC776BA770AC" name="Internare_Asistent_FK">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>D8976EFE-5133-CF75-C7A2-95A0E817760C</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<referredTableLongName>Asistent</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>9FCE1F06-B531-5974-60B9-999B9BDDC9CF</referredTableID>
+<keyObject>9B667860-3FD6-A4D0-02CC-B0B03A8A7F04</keyObject>
+<referredKeyID>9B667860-3FD6-A4D0-02CC-B0B03A8A7F04</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_asis</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1E4E1214-37F5-4B88-12D2-33CA69B4C90A" name="Pacient">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>4CF93ACF-5F0B-6799-D479-D75BFA112D2B</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cod_asig" id="DE52F3C1-F159-1EA0-AD7D-49E830765093">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>70ABD69F-76C1-A29D-387B-150308265383</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>cod_asig_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(cod_asig,&apos;^[0-9]*$&apos; )"/>
+</checkConstraint>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cnp_pac" id="37C36132-B11E-4635-64F7-DE1E42E122E5">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>80AD9332-6898-E53D-5D90-6C02C91D1651</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>cnp_pac_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>13</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(cnp_pac,&apos;^[0-9]*$&apos; )"/>
+</checkConstraint>
+<ownDataTypeParameters>13,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nume_pac" id="F7A3FA2E-7D00-2D4D-2107-556E7BF34BED">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>F8411AEE-A137-1639-1794-2DDD6E1A9DD8</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>n_pac_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(nume_pac,&apos;^[a-zA-Z ]*$&apos; ) and length(nume_pac) &gt; 1"/>
+</checkConstraint>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="adresa_pac" id="8DD14BF9-FF81-EB29-B48D-CFD0D61C6B21">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>725FC058-2A55-5993-65F9-045C91B23D2D</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>adresa_pac_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="length(adresa_pac) &gt; 1"/>
+</checkConstraint>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tel_pac" id="F7F57AB0-A453-F04A-BA36-B2C0C3AC1B29">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>C88F1B52-CB26-AF18-BA28-BCAF31B1A6F8</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>tel_pac_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(tel_pac,&apos;^[0][2:3:7][0-9]*$&apos; )"/>
+</checkConstraint>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C8D618C3-2205-C7A1-EBE3-5CAC9F30752C" name="Pacient_PK">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>39039F36-DEF1-0FE1-5BDC-8CCE86037238</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DE52F3C1-F159-1EA0-AD7D-49E830765093"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1583B60B-EB0D-88AA-434B-1ECE40B81EF6" name="Pacient_cnp_pac_UN">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>75ABE4D6-E904-AABA-26BF-49E56D14E77A</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="37C36132-B11E-4635-64F7-DE1E42E122E5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

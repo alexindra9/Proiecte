@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="pac_cons_fk" directorySegmentName="seg_0" id="36C29921-DC7F-8400-C5C1-D515ABF33892">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:59:17 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<sourcePk>39039F36-DEF1-0FE1-5BDC-8CCE86037238</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>e programat pentru</nameOnSource>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>4CF93ACF-5F0B-6799-D479-D75BFA112D2B</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>3479C669-2CD5-189F-8E34-F46EF38E5A44</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

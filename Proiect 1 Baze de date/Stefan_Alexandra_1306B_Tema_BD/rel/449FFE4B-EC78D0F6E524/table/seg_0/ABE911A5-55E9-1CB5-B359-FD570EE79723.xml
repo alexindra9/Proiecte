@@ -1,0 +1,131 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="ABE911A5-55E9-1CB5-B359-FD570EE79723" name="Specialist">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>AD5EC55D-CC55-9E64-D6AB-0D7E41C5CB73</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_spec" id="D6118911-3EEC-F635-0728-8CE0C98B2C68">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>ECBF9FF0-460C-691F-F60A-5E4E8E8ED71C</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementStartWith>100</autoIncrementStartWith>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nume_spec" id="332B21EF-329E-3906-CB69-9674A8C25211">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>EECEA4D2-5586-0D25-5313-064ED0EFABD7</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>n_spec_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(nume_spec,&apos;^[a-zA-Z ]*$&apos; ) and length(nume_spec) &gt; 1"/>
+</checkConstraint>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email_spec" id="0894A121-7393-4C5B-B28A-273C430B2ECA">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>6D479F62-4E3A-C959-5980-735999EDEE62</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>email_spec_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>35</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(email_spec, &apos;[a-z0-9._%-]+@[a-z0-9._%-]+\.[a-z]{2,4}&apos;) and length(email_spec) &gt; 1"/>
+</checkConstraint>
+<ownDataTypeParameters>35,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tel_spec" id="27D222BF-6D09-E757-CCEA-CB4C12BB538D">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>B5B7482C-3C36-6215-A2FA-2A330B09AA4E</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>tel_spec_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(tel_spec,&apos;^[0][2:3:7][0-9]*$&apos; )"/>
+</checkConstraint>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="salariu_spec" id="673649A8-5B6E-512D-6363-789D3BEAE7BE">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>E2B6816E-AF2C-E740-AFAA-FCB82DE220CC</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>salariu_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="salariu_spec &gt; 0"/>
+</checkConstraint>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_dept" id="355E2BDA-2072-3270-6F7D-2327D7C5A1EE">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>1049AFC5-2D6D-985B-303D-1B6760474736</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9DCC4C03-00D2-FB97-8885-7B4AB3BEEAC3" referredColumn="39C78403-815F-13A3-0B52-93B00B6FA9CF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AD849E65-3E2E-CCA8-6F89-A85C4D0D0643" name="Specialist_PK">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>9ED432A9-4927-E0FF-7949-D6FAFE45E7A0</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D6118911-3EEC-F635-0728-8CE0C98B2C68"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="29D89F44-8B81-2FA8-CD75-AA0364DD5349" name="Specialist_Departament_FK">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>6012AF1A-6C8A-5482-0B20-BDDDBBC4C236</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="355E2BDA-2072-3270-6F7D-2327D7C5A1EE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

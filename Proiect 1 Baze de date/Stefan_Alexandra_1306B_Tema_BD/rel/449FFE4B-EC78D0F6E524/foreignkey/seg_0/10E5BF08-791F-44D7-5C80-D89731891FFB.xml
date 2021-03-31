@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="10E5BF08-791F-44D7-5C80-D89731891FFB" containerWithKeyObject="31970C7E-F131-7B0D-3D30-DA2E5F75A231" localFKIndex="DB373561-6E31-5278-3A5E-3F264DBD3B22" name="Tratament_Internare_FK">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>EC81AC25-794E-3A8E-A8BA-5588E3738C29</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<referredTableLongName>Internare</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>BE6C7683-9CE6-D66F-D0CD-42EF6B0133B6</referredTableID>
+<keyObject>8AEFBC30-0341-0299-B7C9-B1DF51238788</keyObject>
+<referredKeyID>8AEFBC30-0341-0299-B7C9-B1DF51238788</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_intern</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

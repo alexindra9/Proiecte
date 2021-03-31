@@ -1,0 +1,121 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4BBA5B9D-0A63-037F-D81B-D907A9CDA740" name="Consultatie">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>3479C669-2CD5-189F-8E34-F46EF38E5A44</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_cons" id="4588B732-3E00-D012-0CC1-34559556409E">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>88EEB163-7D58-A200-6CB6-A0E75091D86A</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementStartWith>10000</autoIncrementStartWith>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="data_cons" id="40DF3506-1E7C-A307-F29E-A2F12B8BA4A4">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>419B52C7-A883-0EB9-D998-3BB5F31EFEA0</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nr_cab" id="778F0A5B-2EB5-A48D-4AAE-E8D8A48D359D">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>44DFB4E9-A212-16A3-FAD4-27BFD06A8451</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<constraintName>nr_cab_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(nr_cab, &apos;[C][C][0-9]*$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_spec" id="368CEAD7-3970-6238-BA66-2DEA50D72FD3">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>5CBC193D-2566-4A43-83EF-5CF33543BBBC</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E792CDC7-6681-56D8-8E65-E670E33B590A" referredColumn="D6118911-3EEC-F635-0728-8CE0C98B2C68"/>
+</associations>
+</Column>
+<Column name="cod_asig" id="09E2B8CC-D51E-794F-AF95-8A798550F52C">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>3F7F48F8-8B1D-E05E-0EBC-5C9841AF23AA</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6F20A1BF-DDD0-6209-370F-430247F5C138" referredColumn="DE52F3C1-F159-1EA0-AD7D-49E830765093"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D2920E5C-DCCE-7D69-0720-DDC1F8A2FB48" name="Consultatie_PK">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>5F7A8A18-839D-8EEA-4299-3F474EC61D57</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4588B732-3E00-D012-0CC1-34559556409E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D555FE26-5C62-0771-FE57-616E49A71067" name="Consultatie_Pacient_FK">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>36C29921-DC7F-8400-C5C1-D515ABF33892</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="09E2B8CC-D51E-794F-AF95-8A798550F52C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FBC84843-E9DB-A3A7-07DE-A1477A6B2252" name="Consultatie_Specialist_FK">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 19:07:19 UTC</createdTime>
+<generatorID>3078EBF1-F795-A11E-571F-026FC14B5977</generatorID>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="368CEAD7-3970-6238-BA66-2DEA50D72FD3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

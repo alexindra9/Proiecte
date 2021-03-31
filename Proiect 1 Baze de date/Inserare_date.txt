@@ -1,0 +1,162 @@
+-- Creare tabele
+INSERT INTO Asistent(nume_asis, statut_asis, tel_asis, salariu_asis) VALUES ('Gina Marculescu', 'principal', '0745295189', '4200');
+INSERT INTO Asistent(nume_asis, statut_asis, tel_asis, salariu_asis) VALUES ('Eleonora Dumitru', 'principal', '0756293761', '4200');
+INSERT INTO Asistent(nume_asis, statut_asis, tel_asis, salariu_asis) VALUES ('Andrei Popescu', 'debutant', '0749177283', '3900');
+INSERT INTO Asistent(nume_asis, tel_asis, salariu_asis) VALUES ('Mihnea Dorobant', '0747293552', '4000');
+INSERT INTO Asistent(nume_asis, statut_asis, tel_asis, salariu_asis) VALUES ('Irina Novici', 'integrat', '0755710444', '4100');
+INSERT INTO Asistent(nume_asis, statut_asis, tel_asis, salariu_asis) VALUES ('Cristian Covaski', 'debutant', '0759204688', '3900');
+
+INSERT INTO Departament(nume_dept, sef_de_sectie) VALUES ('Chirurgie cardiotoracica', 'Adrian Paulet');
+INSERT INTO Departament(nume_dept, sef_de_sectie) VALUES ('Chirurgie endocrina', 'Marilena Dobrescu');
+INSERT INTO Departament(nume_dept, sef_de_sectie) VALUES ('Neurochirurgie', 'Bogdan Alexe');
+INSERT INTO Departament(nume_dept, sef_de_sectie) VALUES ('Chirurgie oncologica', 'Teofil Georgescu');
+INSERT INTO Departament(nume_dept, sef_de_sectie) VALUES ('Chirurgie plastica', 'Francesca Barbu');
+INSERT INTO Departament(nume_dept, sef_de_sectie) VALUES ('Chirurgie generala', 'Bianca Florescu');
+
+INSERT INTO Specialist(nume_spec, email_spec, tel_spec, salariu_spec, id_dept) VALUES ('Elisa Mincu', 'emincu89@gmail.com', '0746233739', '12000', '10');
+INSERT INTO Specialist(nume_spec, email_spec, tel_spec, salariu_spec, id_dept) VALUES ('Darie Bitman', 'dariebitman_1@gmail.com', '0723890481', '10500', '11');
+INSERT INTO Specialist(nume_spec, email_spec, tel_spec, salariu_spec, id_dept) VALUES ('Emilian Butescu', 'emi_butescu34@hotmail.com', '0748111029', '15500', '12');
+INSERT INTO Specialist(nume_spec, email_spec, tel_spec, salariu_spec, id_dept) VALUES ('Laur Gradescu', 'laurgradi7@gmail.com', '0755199230', '17000', '13');
+INSERT INTO Specialist(nume_spec, email_spec, tel_spec, salariu_spec, id_dept) VALUES ('Giulia Rossini', 'giuli_ros_12@gmail.com', '0733877613', '15500', '14');
+INSERT INTO Specialist(nume_spec, email_spec, tel_spec, salariu_spec, id_dept) VALUES ('Lucretia Dan', 'lucretiad.ld@yahoo.com', '0758612960', '13500', '10');
+
+INSERT INTO Pacient(cod_asig, cnp_pac, nume_pac, adresa_pac, tel_pac) VALUES ('48855343653135041209', '2701104227975', 'Teodora Hritcu', 'Str.Margaretelor Nr.10 Bl.A17 Et.3 Ap.8 Mun.Iasi Jud.IS', '0771237519');
+INSERT INTO Pacient(cod_asig, cnp_pac, nume_pac, adresa_pac, tel_pac) VALUES ('41544484629562186531', '2880122227488', 'Grigore Maria', 'Str.Galbeni Nr.3 Bl.C44 Et.2 Ap.3 Mun.Iasi Jud.IS', '0756338619');
+INSERT INTO Pacient(cod_asig, cnp_pac, nume_pac, adresa_pac, tel_pac) VALUES ('49168380483249961795', '2950603226752', 'Eugenia Sasescu', 'Str.Grigore Vieru Nr.7 Bl.B13 Et.2 Ap.5 Mun.Iasi Jud.IS', '0758420176');
+INSERT INTO Pacient(cod_asig, cnp_pac, nume_pac, adresa_pac, tel_pac) VALUES ('42023465523072258740', '2830515226108', 'Ioan Anitei', 'Str. Brandusa Nr.18 Mun.Iasi Jud.IS', '0332661832');
+INSERT INTO Pacient(cod_asig, cnp_pac, nume_pac, adresa_pac, tel_pac) VALUES ('49577965773006819962', '6010712228020', 'Maia Petcu', 'Aleea Decebal Nr.8 Bl.A19 Et.3 Ap.14 Mun.Iasi Jud.IS', '0230519529');
+INSERT INTO Pacient(cod_asig, cnp_pac, nume_pac, adresa_pac, tel_pac) VALUES ('42064496173902491859', '2900519227013', 'Tudor Durea', 'Aleea Rozelor Nr.5 Bl.C12 Et.1 Ap.2 Mun.Iasi Jud.IS', '0757910760');
+
+SET SERVEROUTPUT ON;
+
+--Inserare date pe rand
+BEGIN
+	INSERT INTO Orar(id_spec, data_orar, ora_orar) VALUES ('104', TO_DATE('21/06/03', 'rrrr/mm/dd'), '10');   
+	INSERT INTO Consultatie(data_cons, nr_cab, id_spec, cod_asig) VALUES (TO_DATE('21/06/03 10:00:00', 'rrrr/mm/dd hh24:mi:ss'), 'CC03', '104', '49168380483249961795');
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        DBMS_OUTPUT.PUT_LINE('Data calendaristica deja ocupata!');
+END;
+
+BEGIN
+	INSERT INTO Orar(id_spec, data_orar, ora_orar) VALUES ('100', TO_DATE('22/07/11', 'rrrr/mm/dd'), '13');  
+	INSERT INTO Consultatie(data_cons, nr_cab, id_spec, cod_asig) VALUES (TO_DATE('22/07/11 13:00:00', 'rrrr/mm/dd hh24:mi:ss'), 'CC09', '100', '42064496173902491859');
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        DBMS_OUTPUT.PUT_LINE('Data calendaristica deja ocupata!');
+END;
+
+BEGIN
+	INSERT INTO Orar(id_spec, data_orar, ora_orar) VALUES ('102', TO_DATE('21/05/14', 'rrrr/mm/dd'), '15');   
+	INSERT INTO Consultatie(data_cons, nr_cab, id_spec, cod_asig) VALUES (TO_DATE('21/05/14 15:00:00', 'rrrr/mm/dd hh24:mi:ss'), 'CC10', '102', '49577965773006819962');
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        DBMS_OUTPUT.PUT_LINE('Data calendaristica deja ocupata!');
+END;
+
+BEGIN
+	INSERT INTO Orar(id_spec, data_orar, ora_orar) VALUES ('101', TO_DATE('21/10/19', 'rrrr/mm/dd'), '9');   
+	INSERT INTO Consultatie(data_cons, nr_cab, id_spec, cod_asig) VALUES (TO_DATE('21/10/19 09:00:00', 'rrrr/mm/dd hh24:mi:ss'), 'CC12', '101', '42023465523072258740');
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        DBMS_OUTPUT.PUT_LINE('Data calendaristica deja ocupata!');
+END;
+
+BEGIN
+	INSERT INTO Orar(id_spec, data_orar, ora_orar) VALUES ('103', TO_DATE('21/07/09', 'rrrr/mm/dd'), '16');   
+	INSERT INTO Consultatie(data_cons, nr_cab, id_spec, cod_asig) VALUES (TO_DATE('21/07/09 16:00:00', 'rrrr/mm/dd hh24:mi:ss'), 'CC01', '103', '41544484629562186531');
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        DBMS_OUTPUT.PUT_LINE('Data calendaristica deja ocupata!');
+END;
+
+BEGIN
+	INSERT INTO Orar(id_spec, data_orar, ora_orar) VALUES ('102', TO_DATE('21/07/24', 'rrrr/mm/dd'), '12');   
+	INSERT INTO Consultatie(data_cons, nr_cab, id_spec, cod_asig) VALUES (TO_DATE('21/07/24 12:00:00', 'rrrr/mm/dd hh24:mi:ss'), 'CC09', '102', '48855343653135041209');
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        DBMS_OUTPUT.PUT_LINE('Data calendaristica deja ocupata!');
+END;
+
+BEGIN
+	INSERT INTO Orar(id_spec, data_orar, ora_orar) VALUES ('104', TO_DATE('22/05/03', 'rrrr/mm/dd'), '18');
+	INSERT INTO Interventie(nume_interv, data_interv, data_final, cost_total, nr_sala, id_spec, cod_asig, id_cons) VALUES ('Rinoplastie', TO_DATE('22/05/03 18:00:00', 'rrrr/mm/dd hh24:mi:ss'), TO_DATE('22/05/03 21:00:00', 'rrrr/mm/dd hh24:mi:ss'), '9600', 'SO013', '104', '49168380483249961795', '10000');   
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        DBMS_OUTPUT.PUT_LINE('Data calendaristica deja ocupata!');
+END;
+
+BEGIN
+	INSERT INTO Orar(id_spec, data_orar, ora_orar) VALUES ('100', TO_DATE('22/07/11', 'rrrr/mm/dd'), '9');   
+	INSERT INTO Interventie(nume_interv, data_interv, data_final, cost_total, nr_sala, id_spec, cod_asig, id_cons) VALUES ('Pericardiotomie', TO_DATE('22/07/11 09:00:00', 'rrrr/mm/dd hh24:mi:ss'), TO_DATE('22/07/11 15:00:00', 'rrrr/mm/dd hh24:mi:ss'), '5500', 'SO021', '100', '48855343653135041209', NULL);
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        DBMS_OUTPUT.PUT_LINE('Data calendaristica deja ocupata!');
+END;
+
+BEGIN
+	INSERT INTO Orar(id_spec, data_orar, ora_orar) VALUES ('102', TO_DATE('23/04/16', 'rrrr/mm/dd'), '15');   
+	INSERT INTO Interventie(nume_interv, data_interv, data_final, cost_total, nr_sala, id_spec, cod_asig, id_cons) VALUES ('Craniectomie lineara', TO_DATE('23/04/16 15:00:00', 'rrrr/mm/dd hh24:mi:ss'), TO_DATE('23/04/16 19:00:00', 'rrrr/mm/dd hh24:mi:ss'), '2000', 'SO001', '102', '49577965773006819962', '10002');
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        DBMS_OUTPUT.PUT_LINE('Data calendaristica deja ocupata!');
+END;
+
+BEGIN
+	INSERT INTO Orar(id_spec, data_orar, ora_orar) VALUES ('101', TO_DATE('22/11/23', 'rrrr/mm/dd'), '12');   
+	INSERT INTO Interventie(nume_interv, data_interv, data_final, cost_total, nr_sala, id_spec, cod_asig, id_cons) VALUES ('Paratiroidectomie partiala', TO_DATE('22/11/23 12:00:00', 'rrrr/mm/dd hh24:mi:ss'), TO_DATE('22/11/23 17:00:00', 'rrrr/mm/dd hh24:mi:ss'), '6000', 'SO013', '101', '42023465523072258740', '10003');
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        DBMS_OUTPUT.PUT_LINE('Data calendaristica deja ocupata!');
+END;
+
+BEGIN
+	INSERT INTO Orar(id_spec, data_orar, ora_orar) VALUES ('103', TO_DATE('21/08/20', 'rrrr/mm/dd'), '16');   
+	INSERT INTO Interventie(nume_interv, data_interv, data_final, cost_total, nr_sala, id_spec, cod_asig, id_cons) VALUES ('Biopsie excizionala', TO_DATE('21/08/20 16:00:00', 'rrrr/mm/dd hh24:mi:ss'), TO_DATE('21/08/20 17:00:00', 'rrrr/mm/dd hh24:mi:ss'), '1500', 'SO007', '103', '41544484629562186531', '10004');
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        DBMS_OUTPUT.PUT_LINE('Data calendaristica deja ocupata!');
+END;
+
+BEGIN
+	INSERT INTO Orar(id_spec, data_orar, ora_orar) VALUES ('102', TO_DATE('22/10/15', 'rrrr/mm/dd'), '11');   
+	INSERT INTO Interventie(nume_interv, data_interv, data_final, cost_total, nr_sala, id_spec, cod_asig, id_cons) VALUES ('Punctie craniana', TO_DATE('22/10/15 11:00:00', 'rrrr/mm/dd hh24:mi:ss'), TO_DATE('22/10/15 15:00:00', 'rrrr/mm/dd hh24:mi:ss'), '1200', 'SO001', '102', '48855343653135041209', '10005');
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        DBMS_OUTPUT.PUT_LINE('Data calendaristica deja ocupata!');
+END;
+--
+
+INSERT INTO Internare(nr_camera, id_interv, id_asis, data_intern, data_extern) VALUES ('I014', '40003', '5003', TO_DATE('22/11/23 18:00:00', 'rrrr/mm/dd hh24:mi:ss'), TO_DATE('22/11/30 11:00:00', 'rrrr/mm/dd hh24:mi:ss'));
+INSERT INTO Internare(nr_camera, id_interv, id_asis, data_intern, data_extern) VALUES ('I020', '40000', '5001', TO_DATE('22/05/03 22:00:00', 'rrrr/mm/dd hh24:mi:ss'), TO_DATE('22/05/10 10:00:00', 'rrrr/mm/dd hh24:mi:ss'));
+INSERT INTO Internare(nr_camera, id_interv, id_asis, data_intern, data_extern) VALUES ('I023', '40001', '5004', TO_DATE('22/07/11 16:00:00', 'rrrr/mm/dd hh24:mi:ss'), TO_DATE('22/07/25 12:00:00', 'rrrr/mm/dd hh24:mi:ss'));
+INSERT INTO Internare(nr_camera, id_interv, id_asis, data_intern, data_extern) VALUES ('I007', '40002', '5000', TO_DATE('23/04/16 20:00:00', 'rrrr/mm/dd hh24:mi:ss'), TO_DATE('23/04/26 10:00:00', 'rrrr/mm/dd hh24:mi:ss'));
+INSERT INTO Internare(nr_camera, id_interv, id_asis, data_intern, data_extern) VALUES ('I001', '40004', '5000', TO_DATE('21/08/20 18:00:00', 'rrrr/mm/dd hh24:mi:ss'), TO_DATE('21/08/20 20:00:00', 'rrrr/mm/dd hh24:mi:ss'));
+INSERT INTO Internare(nr_camera, id_interv, id_asis, data_intern, data_extern) VALUES ('I007', '40005', '5005', TO_DATE('22/10/15 16:00:00', 'rrrr/mm/dd hh24:mi:ss'), TO_DATE('22/10/23 10:00:00', 'rrrr/mm/dd hh24:mi:ss'));
+
+INSERT INTO Tratament(nume_trat, marca_trat, descriere_trat, id_intern, ora_admin, dozaj_zilnic, per_admin) VALUES ('Arcoxia 120 mg', 'MSD Sharp '||chr(38)||' Dohme GmbH', 'Antiinflamator nesteroidian din clasa coxibilor, utilizat ca antiinflamator, analgezic si antipiretic. Poate produce aritmii si palpitatii. Nerecomandat in sarcina, alaptare si copiilor sub 16 ani.', '70003', TO_DATE('08:00:00', 'hh24:mi:ss'), '1', '3');
+INSERT INTO Tratament(nume_trat, marca_trat, descriere_trat, id_intern, ora_admin, dozaj_zilnic, per_admin) VALUES ('Diclofenac 100 mg', 'Magistra C'||chr(38)||'C', 'Antiinflamator nesteroidian de uz local. Poate produce eruptii, dermatita, reactii de tip anafilactic. Nerecomandat celor cu ulcer gastroduodenal activ, sangerari gastrointestinale, leucopenie, trombocitopenie, porfirie.', '70001', TO_DATE('07:00:00', 'hh24:mi:ss'), '1', '5');
+INSERT INTO Tratament(nume_trat, marca_trat, descriere_trat, id_intern, ora_admin, dozaj_zilnic, per_admin) VALUES ('Oxicodona Sandoz 40 mg', 'Sandoz S.R.L.', 'Analgezic opioid semi-sintetic derivat din tebaina. Poate produce oboseala, dureri abdominale, hipersensibilitate, balonare, crampe musculare, agitatie, dificultati respiratorii. Nerecomandat in sarcina, alaptare si copiilor sub 16 ani.', '70004', TO_DATE('15:10:00', 'hh24:mi:ss'), '2', '8');
+INSERT INTO Tratament(nume_trat, marca_trat, descriere_trat, id_intern, ora_admin, dozaj_zilnic, per_admin) VALUES ('Paracetamol 650 mg', 'Fibovil Pharmaceuticals', 'Derivat din para-aminofenol din clasa anilidelor, cu actiune analgezica si antipiretica. Poate produce dificultati respiratorii, mancarimi, ameteli, dureri de cap, dureri abdominale. Nerecomandat in sarcina si alaptare.', '70000', TO_DATE('12:00:00', 'hh24:mi:ss'), '3', '7');
+INSERT INTO Tratament(nume_trat, marca_trat, descriere_trat, id_intern, ora_admin, dozaj_zilnic, per_admin) VALUES ('Ketorolac 10 mg', 'Dr. Reddy''s', 'Antiinflamator si antireumatic nesteroidian. Poate produce tulburari gastrointestinale, insomnie, anafilaxie, dureri de cap, palpitatii, dificultati respiratorii. Nerecomandat in sarcina, alaptare si copiilor sub 18 ani.', '70002', TO_DATE('09:00:00', 'hh24:mi:ss'), '1', '1');
+INSERT INTO Tratament(nume_trat, marca_trat, descriere_trat, id_intern, ora_admin, dozaj_zilnic, per_admin) VALUES ('Codeina 15 mg', 'Labormed', 'Analgezic opioid care amelioreaza durerea prin actiunea sa. Poate produce greata, constipatie, urticarie, ameteala, palpitatii, hipotensiune arteriala, confuzie, halucinatii. Nerecomandat in sarcina, alaptare si copiilor sub 12 ani.', '70005', TO_DATE('10:00:00', 'hh24:mi:ss'), '6', '5');
+INSERT INTO Tratament(nume_trat, marca_trat, descriere_trat, id_intern, ora_admin, dozaj_zilnic, per_admin) VALUES ('Paracetamol 650 mg', 'Fibovil Pharmaceuticals', 'Derivat din para-aminofenol din clasa anilidelor, cu actiune analgezica si antipiretica. Poate produce dificultati respiratorii, mancarimi, ameteli, dureri de cap, dureri abdominale. Nerecomandat in sarcina si alaptare.', '70005', TO_DATE('10:00:00', 'hh24:mi:ss'), '2', '5');
+
+-- Stergere tabele
+DROP SEQUENCE asistent_id_asis_seq;
+DROP SEQUENCE orar_id_orar_seq;
+DROP SEQUENCE consultatie_id_cons_seq;
+DROP SEQUENCE departament_id_dept_seq;
+DROP SEQUENCE internare_id_intern_seq;
+DROP SEQUENCE interventie_id_interv_seq;
+DROP SEQUENCE specialist_id_spec_seq;
+DROP SEQUENCE tratament_cod_trat_seq;
+DROP TABLE orar;
+DROP TABLE tratament;
+DROP TABLE internare;
+DROP TABLE interventie;
+DROP TABLE consultatie;
+DROP TABLE pacient;
+DROP TABLE specialist;
+DROP TABLE departament;
+DROP TABLE asistent;

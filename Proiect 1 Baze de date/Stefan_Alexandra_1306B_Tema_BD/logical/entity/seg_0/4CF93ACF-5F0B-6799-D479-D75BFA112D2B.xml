@@ -1,0 +1,132 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4CF93ACF-5F0B-6799-D479-D75BFA112D2B" name="Pacient">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:18:06 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cod_asig" id="70ABD69F-76C1-A29D-387B-150308265383">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:43:37 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<constraintName>cod_asig_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(cod_asig,&apos;^[0-9]*$&apos; )"/>
+</checkConstraint>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cnp_pac" id="80AD9332-6898-E53D-5D90-6C02C91D1651">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:44:13 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<constraintName>cnp_pac_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>13</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(cnp_pac,&apos;^[0-9]*$&apos; )"/>
+</checkConstraint>
+<ownDataTypeParameters>13,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nume_pac" id="F8411AEE-A137-1639-1794-2DDD6E1A9DD8">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:50:15 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<constraintName>n_pac_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(nume_pac,&apos;^[a-zA-Z ]*$&apos; ) and length(nume_pac) &gt; 1"/>
+</checkConstraint>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="adresa_pac" id="725FC058-2A55-5993-65F9-045C91B23D2D">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:50:34 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<constraintName>adresa_pac_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="length(adresa_pac) &gt; 1"/>
+</checkConstraint>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tel_pac" id="C88F1B52-CB26-AF18-BA28-BCAF31B1A6F8">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:51:01 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<constraintName>tel_pac_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(tel_pac,&apos;^[0][2:3:7][0-9]*$&apos; )"/>
+</checkConstraint>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="39039F36-DEF1-0FE1-5BDC-8CCE86037238" name="Pacient PK">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:50:11 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>70ABD69F-76C1-A29D-387B-150308265383</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="75ABE4D6-E904-AABA-26BF-49E56D14E77A" name="Key_2">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 14:45:20 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="false"/>
+</engineerTo>
+<newElementsIDs>80AD9332-6898-E53D-5D90-6C02C91D1651</newElementsIDs>
+<usedAttributes>
+<attributeRef>80AD9332-6898-E53D-5D90-6C02C91D1651</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

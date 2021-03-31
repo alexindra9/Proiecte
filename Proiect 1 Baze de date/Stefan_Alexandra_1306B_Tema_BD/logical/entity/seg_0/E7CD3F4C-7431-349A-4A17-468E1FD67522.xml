@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E7CD3F4C-7431-349A-4A17-468E1FD67522" name="Asistent">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:18:18 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_asis" id="2EAD3F02-EF0F-910B-339F-97027924A0FD">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:51:34 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nume_asis" id="DF2DADA8-259A-5642-81B4-3227B6A830F6">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:52:31 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<constraintName>n_asis_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(nume_asis,&apos;^[a-zA-Z ]*$&apos; ) and length(nume_asis) &gt; 1"/>
+</checkConstraint>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tel_asis" id="97645879-A39B-B3DC-2682-4BB2B6203D6E">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 12:46:57 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<constraintName>tel_asis_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(tel_asis,&apos;^[0][2:3:7][0-9]*$&apos; )"/>
+</checkConstraint>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="statut_asis" id="B2D0C708-ADA7-A51C-34C6-5AE80A3C6850">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:52:47 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<constraintName>statut_asis_ck</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<listOfValues>
+<valueDef value="debutant" description=""/>
+<valueDef value="integrat" description=""/>
+<valueDef value="principal" description=""/>
+</listOfValues>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="salariu_asis" id="51DF43B5-BAF2-5999-1929-1795E5986714">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-27 21:11:45 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<constraintName>salariu_asis_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="salariu_asis &gt; 0"/>
+</checkConstraint>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BFBA9CEA-F156-2D6D-4E59-08258CF8722B" name="Asistent PK">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:52:29 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2EAD3F02-EF0F-910B-339F-97027924A0FD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

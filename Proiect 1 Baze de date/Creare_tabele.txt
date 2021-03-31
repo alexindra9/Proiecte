@@ -1,0 +1,435 @@
+CREATE TABLE asistent (
+    id_asis       NUMBER(4) NOT NULL,
+    nume_asis     VARCHAR2(25) NOT NULL,
+    tel_asis      CHAR(10) NOT NULL,
+    statut_asis   VARCHAR2(25),
+    salariu_asis  NUMBER(7) NOT NULL
+)
+LOGGING;
+
+ALTER TABLE asistent
+    ADD CONSTRAINT n_asis_ck CHECK ( REGEXP_LIKE ( nume_asis,
+                                                   '^[a-zA-Z ]*$' )
+                                     AND length(nume_asis) > 1 );
+
+ALTER TABLE asistent
+    ADD CONSTRAINT tel_asis_ck CHECK ( REGEXP_LIKE ( tel_asis,
+                                                     '^[0][2:3:7][0-9]*$' ) );
+
+ALTER TABLE asistent
+    ADD CONSTRAINT statut_asis_ck CHECK ( statut_asis IN ( 'debutant', 'integrat', 'principal' ) );
+
+ALTER TABLE asistent ADD CONSTRAINT salariu_asis_ck CHECK ( salariu_asis > 0 );
+
+ALTER TABLE asistent ADD CONSTRAINT asistent_pk PRIMARY KEY ( id_asis );
+
+CREATE TABLE consultatie (
+    id_cons    NUMBER(5) NOT NULL,
+    data_cons  DATE NOT NULL,
+    nr_cab     CHAR(4) NOT NULL,
+    id_spec    NUMBER(3) NOT NULL,
+    cod_asig   CHAR(20) NOT NULL
+)
+LOGGING;
+
+ALTER TABLE consultatie
+    ADD CONSTRAINT nr_cab_ck CHECK ( REGEXP_LIKE ( nr_cab,
+                                                   '[C][C][0-9]*$' ) );
+
+ALTER TABLE consultatie ADD CONSTRAINT consultatie_pk PRIMARY KEY ( id_cons );
+
+CREATE TABLE departament (
+    id_dept        NUMBER(2) NOT NULL,
+    nume_dept      VARCHAR2(30) NOT NULL,
+    sef_de_sectie  VARCHAR2(25)
+)
+LOGGING;
+
+ALTER TABLE departament
+    ADD CONSTRAINT n_dept_ck CHECK ( REGEXP_LIKE ( nume_dept,
+                                                   '^[a-zA-Z ]*$' )
+                                     AND length(nume_dept) > 1 );
+
+ALTER TABLE departament
+    ADD CONSTRAINT sef_ck CHECK ( REGEXP_LIKE ( sef_de_sectie,
+                                                '^[a-zA-Z ]*$' )
+                                  AND length(sef_de_sectie) > 1 );
+
+ALTER TABLE departament ADD CONSTRAINT departament_pk PRIMARY KEY ( id_dept );
+
+ALTER TABLE departament ADD CONSTRAINT departament_nume_dept_un UNIQUE ( nume_dept );
+
+ALTER TABLE departament ADD CONSTRAINT departament_sef_de_sectie_un UNIQUE ( sef_de_sectie );
+
+CREATE TABLE internare (
+    id_intern    NUMBER(5) NOT NULL,
+    nr_camera    CHAR(4) NOT NULL,
+    data_intern  DATE NOT NULL,
+    data_extern  DATE,
+    id_interv    NUMBER(5) NOT NULL,
+    id_asis      NUMBER(4) NOT NULL
+)
+LOGGING;
+
+ALTER TABLE internare
+    ADD CONSTRAINT nr_cam_ck CHECK ( REGEXP_LIKE ( nr_camera,
+                                                   '[I][0-9]*$' ) );
+
+CREATE UNIQUE INDEX internare__idx ON
+    internare (
+        id_interv
+    ASC )
+        LOGGING;
+
+ALTER TABLE internare ADD CONSTRAINT internare_pk PRIMARY KEY ( id_intern );
+
+CREATE TABLE interventie (
+    id_interv    NUMBER(5) NOT NULL,
+    nume_interv  VARCHAR2(45) NOT NULL,
+    data_interv  DATE NOT NULL,
+    data_final   DATE,
+    cost_total   NUMBER(10) NOT NULL,
+    nr_sala      CHAR(5) NOT NULL,
+    id_spec      NUMBER(3) NOT NULL,
+    cod_asig     CHAR(20) NOT NULL,
+    id_cons      NUMBER(5)
+)
+LOGGING;
+
+ALTER TABLE interventie
+    ADD CONSTRAINT n_interv_ck CHECK ( REGEXP_LIKE ( nume_interv,
+                                                     '^[a-zA-Z ]*$' )
+                                       AND length(nume_interv) > 1 );
+
+ALTER TABLE interventie ADD CONSTRAINT cost_total_ck CHECK ( cost_total > 0 );
+
+ALTER TABLE interventie
+    ADD CONSTRAINT nr_sala_ck CHECK ( REGEXP_LIKE ( nr_sala,
+                                                    '[S][O][0-9]*$' ) );
+
+CREATE UNIQUE INDEX interventie__idx ON
+    interventie (
+        id_cons
+    ASC )
+        LOGGING;
+
+ALTER TABLE interventie ADD CONSTRAINT interventie_pk PRIMARY KEY ( id_interv );
+
+CREATE TABLE orar (
+    id_orar    NUMBER(4) NOT NULL,
+    id_spec    NUMBER(3) NOT NULL,
+    data_orar  DATE NOT NULL,
+    ora_orar   NUMBER(2) NOT NULL
+)
+LOGGING;
+
+ALTER TABLE orar
+    ADD CONSTRAINT ora_orar_ck CHECK ( ora_orar BETWEEN 0 AND 24 );
+
+ALTER TABLE orar ADD CONSTRAINT orar_pk PRIMARY KEY ( id_orar );
+
+CREATE TABLE pacient (
+    cod_asig    CHAR(20) NOT NULL,
+    cnp_pac     CHAR(13) NOT NULL,
+    nume_pac    VARCHAR2(25) NOT NULL,
+    adresa_pac  VARCHAR2(100) NOT NULL,
+    tel_pac     CHAR(10) NOT NULL
+)
+LOGGING;
+
+ALTER TABLE pacient
+    ADD CONSTRAINT cod_asig_ck CHECK ( REGEXP_LIKE ( cod_asig,
+                                                     '^[0-9]*$' ) );
+
+ALTER TABLE pacient
+    ADD CONSTRAINT cnp_pac_ck CHECK ( REGEXP_LIKE ( cnp_pac,
+                                                    '^[0-9]*$' ) );
+
+ALTER TABLE pacient
+    ADD CONSTRAINT n_pac_ck CHECK ( REGEXP_LIKE ( nume_pac,
+                                                  '^[a-zA-Z ]*$' )
+                                    AND length(nume_pac) > 1 );
+
+ALTER TABLE pacient
+    ADD CONSTRAINT adresa_pac_ck CHECK ( length(adresa_pac) > 1 );
+
+ALTER TABLE pacient
+    ADD CONSTRAINT tel_pac_ck CHECK ( REGEXP_LIKE ( tel_pac,
+                                                    '^[0][2:3:7][0-9]*$' ) );
+
+ALTER TABLE pacient ADD CONSTRAINT pacient_pk PRIMARY KEY ( cod_asig );
+
+ALTER TABLE pacient ADD CONSTRAINT pacient_cnp_pac_un UNIQUE ( cnp_pac );
+
+CREATE TABLE specialist (
+    id_spec       NUMBER(3) NOT NULL,
+    nume_spec     VARCHAR2(25) NOT NULL,
+    email_spec    VARCHAR2(35) NOT NULL,
+    tel_spec      CHAR(10) NOT NULL,
+    salariu_spec  NUMBER(7) NOT NULL,
+    id_dept       NUMBER(2) NOT NULL
+)
+LOGGING;
+
+ALTER TABLE specialist
+    ADD CONSTRAINT n_spec_ck CHECK ( REGEXP_LIKE ( nume_spec,
+                                                   '^[a-zA-Z ]*$' )
+                                     AND length(nume_spec) > 1 );
+
+ALTER TABLE specialist
+    ADD CONSTRAINT email_spec_ck CHECK ( REGEXP_LIKE ( email_spec,
+                                                       '[a-z0-9._%-]+@[a-z0-9._%-]+\.[a-z]{2,4}' )
+                                         AND length(email_spec) > 1 );
+
+ALTER TABLE specialist
+    ADD CONSTRAINT tel_spec_ck CHECK ( REGEXP_LIKE ( tel_spec,
+                                                     '^[0][2:3:7][0-9]*$' ) );
+
+ALTER TABLE specialist ADD CONSTRAINT salariu_ck CHECK ( salariu_spec > 0 );
+
+ALTER TABLE specialist ADD CONSTRAINT specialist_pk PRIMARY KEY ( id_spec );
+
+CREATE TABLE tratament (
+    cod_trat        NUMBER(10) NOT NULL,
+    nume_trat       VARCHAR2(30) NOT NULL,
+    marca_trat      VARCHAR2(30) NOT NULL,
+    descriere_trat  VARCHAR2(255) NOT NULL,
+    per_admin       NUMBER(2) NOT NULL,
+    ora_admin       DATE NOT NULL,
+    dozaj_zilnic    NUMBER(2) NOT NULL,
+    id_intern       NUMBER(5) NOT NULL
+)
+LOGGING;
+
+ALTER TABLE tratament
+    ADD CONSTRAINT n_trat_ck CHECK ( length(nume_trat) > 1 );
+
+ALTER TABLE tratament
+    ADD CONSTRAINT marca_ck CHECK ( length(marca_trat) > 1 );
+
+ALTER TABLE tratament
+    ADD CONSTRAINT descr_ck CHECK ( length(descriere_trat) > 1 );
+
+ALTER TABLE tratament
+    ADD CONSTRAINT per_adm_ck CHECK ( per_admin BETWEEN 1 AND 30 );
+
+ALTER TABLE tratament
+    ADD CONSTRAINT dozaj_ck CHECK ( dozaj_zilnic BETWEEN 1 AND 10 );
+
+ALTER TABLE tratament ADD CONSTRAINT tratament_pk PRIMARY KEY ( cod_trat );
+
+ALTER TABLE consultatie
+    ADD CONSTRAINT consultatie_pacient_fk FOREIGN KEY ( cod_asig )
+        REFERENCES pacient ( cod_asig )
+    NOT DEFERRABLE;
+
+ALTER TABLE consultatie
+    ADD CONSTRAINT consultatie_specialist_fk FOREIGN KEY ( id_spec )
+        REFERENCES specialist ( id_spec )
+    NOT DEFERRABLE;
+
+ALTER TABLE internare
+    ADD CONSTRAINT internare_asistent_fk FOREIGN KEY ( id_asis )
+        REFERENCES asistent ( id_asis )
+    NOT DEFERRABLE;
+
+ALTER TABLE internare
+    ADD CONSTRAINT internare_interventie_fk FOREIGN KEY ( id_interv )
+        REFERENCES interventie ( id_interv )
+    NOT DEFERRABLE;
+
+ALTER TABLE interventie
+    ADD CONSTRAINT interventie_consultatie_fk FOREIGN KEY ( id_cons )
+        REFERENCES consultatie ( id_cons )
+    NOT DEFERRABLE;
+
+ALTER TABLE interventie
+    ADD CONSTRAINT interventie_pacient_fk FOREIGN KEY ( cod_asig )
+        REFERENCES pacient ( cod_asig )
+    NOT DEFERRABLE;
+
+ALTER TABLE interventie
+    ADD CONSTRAINT interventie_specialist_fk FOREIGN KEY ( id_spec )
+        REFERENCES specialist ( id_spec )
+    NOT DEFERRABLE;
+
+ALTER TABLE orar
+    ADD CONSTRAINT orar_specialist_fk FOREIGN KEY ( id_spec )
+        REFERENCES specialist ( id_spec )
+    NOT DEFERRABLE;
+
+ALTER TABLE specialist
+    ADD CONSTRAINT specialist_departament_fk FOREIGN KEY ( id_dept )
+        REFERENCES departament ( id_dept )
+    NOT DEFERRABLE;
+
+ALTER TABLE tratament
+    ADD CONSTRAINT tratament_internare_fk FOREIGN KEY ( id_intern )
+        REFERENCES internare ( id_intern )
+    NOT DEFERRABLE;
+
+CREATE OR REPLACE TRIGGER trg_cons_BRIU 
+    BEFORE INSERT OR UPDATE ON Consultatie 
+    FOR EACH ROW 
+BEGIN
+	IF( :new.data_cons <= SYSDATE )
+	THEN
+		RAISE_APPLICATION_ERROR( -20001,
+			'Data invalida: ' || TO_CHAR( :new.data_cons, 'DD.MM.YYYY HH24:MI:SS' ) || ' trebuie sa fie mai mare decat data curenta.' );
+	END IF;
+END; 
+/
+
+CREATE OR REPLACE TRIGGER trg_d_orar_BRIU 
+    BEFORE INSERT OR UPDATE ON Orar 
+    FOR EACH ROW 
+BEGIN
+	IF( :new.data_orar <= SYSDATE )
+	THEN
+		RAISE_APPLICATION_ERROR( -20001,
+			'Data invalida: ' || TO_CHAR( :new.data_orar, 'DD.MM.YYYY HH24:MI:SS' ) || ' trebuie sa fie mai mare decat data curenta.' );
+	END IF;
+END; 
+/
+
+CREATE OR REPLACE TRIGGER trg_extern_BRIU 
+    BEFORE INSERT OR UPDATE ON Internare 
+    FOR EACH ROW 
+BEGIN
+	IF( :new.data_extern <= :new.data_intern )
+	THEN
+		RAISE_APPLICATION_ERROR( -20001,
+			'Data invalida: ' || TO_CHAR( :new.data_extern, 'DD.MM.YYYY HH24:MI:SS' ) || ' trebuie sa fie mai mare decat data de internare.' );
+	END IF;
+END; 
+/
+
+CREATE OR REPLACE TRIGGER trg_final_BRIU 
+    BEFORE INSERT OR UPDATE ON Interventie 
+    FOR EACH ROW 
+BEGIN
+	IF( :new.data_final <= :new.data_interv)
+	THEN
+		RAISE_APPLICATION_ERROR( -20001,
+			'Data invalida: ' || TO_CHAR( :new.data_final, 'DD.MM.YYYY HH24:MI:SS' ) || ' trebuie sa fie mai mare decat data de inceput.' );
+	END IF;
+END; 
+/
+
+CREATE OR REPLACE TRIGGER trg_intern_BRIU 
+    BEFORE INSERT OR UPDATE ON Internare 
+    FOR EACH ROW 
+DECLARE
+	aux_date DATE;
+BEGIN
+	SELECT Interventie.data_final
+	INTO aux_date
+	FROM Interventie
+	WHERE Interventie.id_interv = :new.id_interv;
+	IF :new.data_intern < aux_date
+	THEN 
+		RAISE_APPLICATION_ERROR(-20100, 
+			'Data invalida: ' || TO_CHAR( :new.data_intern, 'DD.MM.YYYY HH24:MI:SS' ) || ' trebuie sa fie mai mare decat finalul interventiei.');
+	END IF;
+END; 
+/
+
+CREATE OR REPLACE TRIGGER trg_interv_BRIU 
+    BEFORE INSERT OR UPDATE ON Interventie 
+    FOR EACH ROW 
+BEGIN
+	IF( :new.data_interv <= SYSDATE )
+	THEN
+		RAISE_APPLICATION_ERROR( -20001,
+			'Data invalida: ' || TO_CHAR( :new.data_interv, 'DD.MM.YYYY HH24:MI:SS' ) || ' trebuie sa fie mai mare decat data curenta.' );
+	END IF;
+END; 
+/
+
+CREATE SEQUENCE asistent_id_asis_seq START WITH 5000 NOCACHE ORDER;
+
+CREATE OR REPLACE TRIGGER asistent_id_asis_trg BEFORE
+    INSERT ON asistent
+    FOR EACH ROW
+    WHEN ( new.id_asis IS NULL )
+BEGIN
+    :new.id_asis := asistent_id_asis_seq.nextval;
+END;
+/
+
+CREATE SEQUENCE consultatie_id_cons_seq START WITH 10000 NOCACHE ORDER;
+
+CREATE OR REPLACE TRIGGER consultatie_id_cons_trg BEFORE
+    INSERT ON consultatie
+    FOR EACH ROW
+    WHEN ( new.id_cons IS NULL )
+BEGIN
+    :new.id_cons := consultatie_id_cons_seq.nextval;
+END;
+/
+
+CREATE SEQUENCE departament_id_dept_seq START WITH 10 NOCACHE ORDER;
+
+CREATE OR REPLACE TRIGGER departament_id_dept_trg BEFORE
+    INSERT ON departament
+    FOR EACH ROW
+    WHEN ( new.id_dept IS NULL )
+BEGIN
+    :new.id_dept := departament_id_dept_seq.nextval;
+END;
+/
+
+CREATE SEQUENCE internare_id_intern_seq START WITH 70000 NOCACHE ORDER;
+
+CREATE OR REPLACE TRIGGER internare_id_intern_trg BEFORE
+    INSERT ON internare
+    FOR EACH ROW
+    WHEN ( new.id_intern IS NULL )
+BEGIN
+    :new.id_intern := internare_id_intern_seq.nextval;
+END;
+/
+
+CREATE SEQUENCE interventie_id_interv_seq START WITH 40000 NOCACHE ORDER;
+
+CREATE OR REPLACE TRIGGER interventie_id_interv_trg BEFORE
+    INSERT ON interventie
+    FOR EACH ROW
+    WHEN ( new.id_interv IS NULL )
+BEGIN
+    :new.id_interv := interventie_id_interv_seq.nextval;
+END;
+/
+
+CREATE SEQUENCE orar_id_orar_seq START WITH 1000 NOCACHE ORDER;
+
+CREATE OR REPLACE TRIGGER orar_id_orar_trg BEFORE
+    INSERT ON orar
+    FOR EACH ROW
+    WHEN ( new.id_orar IS NULL )
+BEGIN
+    :new.id_orar := orar_id_orar_seq.nextval;
+END;
+/
+
+CREATE SEQUENCE specialist_id_spec_seq START WITH 100 NOCACHE ORDER;
+
+CREATE OR REPLACE TRIGGER specialist_id_spec_trg BEFORE
+    INSERT ON specialist
+    FOR EACH ROW
+    WHEN ( new.id_spec IS NULL )
+BEGIN
+    :new.id_spec := specialist_id_spec_seq.nextval;
+END;
+/
+
+CREATE SEQUENCE tratament_cod_trat_seq START WITH 6000000000 NOCACHE ORDER;
+
+CREATE OR REPLACE TRIGGER tratament_cod_trat_trg BEFORE
+    INSERT ON tratament
+    FOR EACH ROW
+    WHEN ( new.cod_trat IS NULL )
+BEGIN
+    :new.cod_trat := tratament_cod_trat_seq.nextval;
+END;
+/

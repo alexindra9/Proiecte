@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="trg_intern_BRIU" directorySegmentName="seg_0" id="F9237CD1-F5F6-7A2E-FE9F-B798167E6C00">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-27 19:50:03 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<actions>INSERT, UPDATE</actions>
+<body><![CDATA[DECLARE
+	aux_date DATE;
+BEGIN
+	SELECT Interventie.data_final
+	INTO aux_date
+	FROM Interventie
+	WHERE Interventie.id_interv = :new.id_interv;
+	IF :new.data_intern < aux_date
+	THEN 
+		RAISE_APPLICATION_ERROR(-20100, 
+			'Data invalida: ' || TO_CHAR( :new.data_intern, 'DD.MM.YYYY HH24:MI:SS' ) || ' trebuie sa fie mai mare decat finalul interventiei.');
+	END IF;
+END;]]></body>
+<triggerTime>BEFORE</triggerTime>
+<table>BE6C7683-9CE6-D66F-D0CD-42EF6B0133B6</table>
+</TriggerOraclev10g>

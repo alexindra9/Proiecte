@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="spec_orar_fk" directorySegmentName="seg_0" id="0E97A959-FD5C-0034-40F7-4520AABB1731">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-03 09:13:58 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<sourcePk>9ED432A9-4927-E0FF-7949-D6FAFE45E7A0</sourcePk>
+<identifying>true</identifying>
+<nameOnSource>are</nameOnSource>
+<nameOnTarget>apartine</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>AD5EC55D-CC55-9E64-D6AB-0D7E41C5CB73</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>3AACB043-CAB3-E6C1-7146-8D65107281F4</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

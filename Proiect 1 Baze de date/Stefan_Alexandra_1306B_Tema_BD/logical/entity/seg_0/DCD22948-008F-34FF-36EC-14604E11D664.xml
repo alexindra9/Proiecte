@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="DCD22948-008F-34FF-36EC-14604E11D664" name="Departament">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:17:28 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_dept" id="ED6CD698-26C8-E606-20A2-25DF078B188C">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:25:07 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nume_dept" id="B487FCC7-DF73-8823-F0C4-8622439E0170">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:25:37 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<constraintName>n_dept_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(nume_dept,&apos;^[a-zA-Z ]*$&apos; ) and length(nume_dept) &gt; 1"/>
+</checkConstraint>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="sef_de_sectie" id="DF55740C-607B-61E2-18EF-4BFD6E497718">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:26:38 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="true"/>
+</engineerTo>
+<constraintName>sef_ck</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(sef_de_sectie,&apos;^[a-zA-Z ]*$&apos; ) and length(sef_de_sectie) &gt; 1"/>
+</checkConstraint>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="7D631612-7543-7464-A343-5D15F6179508" name="Departament PK">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:25:34 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>ED6CD698-26C8-E606-20A2-25DF078B188C</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="8C4E9BDC-DD05-0AFB-3CA7-808C47E8C7D1" name="Key_2">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 10:50:17 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="false"/>
+</engineerTo>
+<newElementsIDs>B487FCC7-DF73-8823-F0C4-8622439E0170</newElementsIDs>
+<usedAttributes>
+<attributeRef>B487FCC7-DF73-8823-F0C4-8622439E0170</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="38A7E2FB-8ABF-4F31-C8D9-A029E1E4AEE7" name="Key_3">
+<createdBy>stefa</createdBy>
+<createdTime>2020-12-13 10:50:46 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_1306B_Tema_BD</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="449FFE4B-DB11-774D-D00F-EC78D0F6E524" value="false"/>
+</engineerTo>
+<newElementsIDs>DF55740C-607B-61E2-18EF-4BFD6E497718</newElementsIDs>
+<usedAttributes>
+<attributeRef>DF55740C-607B-61E2-18EF-4BFD6E497718</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

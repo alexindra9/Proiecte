@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Stefan_Alexandra_1306B_Tema_BD" id="CE9978E2-EC66-CD25-1BC7-B0A6AF2FEE28" version="3.5">
+<createdBy>stefa</createdBy>
+<createdTime>2020-11-26 11:16:49 UTC</createdTime>
+<ownerDesignName>Stefan_Alexandra_Proiect_BD</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>CE9978E2-EC66-CD25-1BC7-B0A6AF2FEE28</designId>
+</OSDM_Design>
